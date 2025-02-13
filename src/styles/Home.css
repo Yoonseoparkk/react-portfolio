@@ -1,0 +1,26 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    text-align: center;
+  }
+  
+  .home-content {
+    max-width: 600px;
+  }
+
+  .btn-board {
+    background-color: #ffc800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-board:hover {
+    background-color: #ffb700;
+  }
