@@ -18,7 +18,7 @@ const Board = () => {
 
   return (
     <div className="container">
-      <h1 className="my-4">게시판</h1>
+      <h1 className="my-4">방명록</h1>
       <BoardForm onSubmit={addItem} />
       <BoardList items={items} onDelete={deleteItem} />
     </div>
