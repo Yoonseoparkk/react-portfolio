@@ -1,0 +1,68 @@
+.board-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 24px 0;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    align-items: center;
+  }
+  
+  .board-container h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .board-container p {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0 12px;
+    line-height: 1.5;
+  }
+  
+  .btn-delete {
+    background: #ffc800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .btn-delete:hover {
+    background: #ffb700;
+  }  
+
+  .btn-submit {
+    background: #ffc800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .btn-submit:hover {
+    background: #ffb700;
+  } 
+
+  .btn-write {
+    background: #ffc800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .btn-write:hover {
+    background: #ffb700;
+  } 
