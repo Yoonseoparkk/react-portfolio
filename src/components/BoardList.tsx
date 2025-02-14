@@ -9,9 +9,11 @@ interface BoardListProps {
 const BoardList = ({ items, onDelete }: BoardListProps) => {
   return (
     <div>
-      {items.map((item) => (
-        <BoardItemComponent key={item.id} item={item} onDelete={onDelete} />
-      ))}
+      {items.length === 0 ? (
+        <p>게시물이 없습니다.</p>
+      ) : (
+        items.map((item) => <BoardItemComponent key={item.id} item={item} onDelete={onDelete} />)
+      )}
     </div>
   );
 };

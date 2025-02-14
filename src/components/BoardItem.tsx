@@ -1,16 +1,17 @@
 import { BoardItem } from "../types/board";
+import "../styles/Board.css"
 
 interface BoardItemProps {
   item: BoardItem;
-  onDelete: (id: number) => void; // onDelete 추가
+  onDelete: (id: number) => void;
 }
 
 const BoardItemComponent = ({ item, onDelete }: BoardItemProps) => {
   return (
-    <div className="border p-3 rounded mb-2">
+    <div className="board-container">
       <h5>{item.title}</h5>
       <p>{item.content}</p>
-      <button className="btn btn-danger" onClick={() => onDelete(item.id)}>삭제</button>
+      <button className="btn-delete" onClick={() => onDelete(item.id)}>삭제</button>
     </div>
   );
 };

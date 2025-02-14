@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BoardItem } from "../types/board";
+import "../styles/Board.css";
 
 interface BoardFormProps {
   onSubmit: (item: Omit<BoardItem, "id">) => void;
@@ -17,7 +18,7 @@ const BoardForm = ({ onSubmit }: BoardFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-3 border rounded">
+    <form onSubmit={handleSubmit} className="board-container">
       <div className="mb-3">
         <label className="form-label">제목</label>
         <input
@@ -37,7 +38,7 @@ const BoardForm = ({ onSubmit }: BoardFormProps) => {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary">등록</button>
+      <button type="submit" className="btn-submit">등록</button>
     </form>
   );
 };
