@@ -48,6 +48,9 @@ export default function AboutSection() {
               </span>
             ))}
           </motion.div>
+            <a href="/resume_yoonseopark.pdf" download className="resume-button">
+                이력서 다운로드 📄
+            </a>
         </motion.div>
       </div>
     </section>
