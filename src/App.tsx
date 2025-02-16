@@ -30,7 +30,7 @@ const App = () => {
             </Link>
             <ul className="nav-links">
               <li>
-                <Link to="/board">방명록</Link>
+                <Link to="/board">-</Link>
               </li>
             </ul>
           </div>

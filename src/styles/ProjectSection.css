@@ -29,6 +29,7 @@
 }
 
 .project-section-container .card-content {
+  text-align: center;
   padding: 1rem;
 }
 
@@ -44,5 +45,5 @@
 }
 
 .project-section-container .card-content .button {
-  width: 100%;
+  width: 70%;
 }
