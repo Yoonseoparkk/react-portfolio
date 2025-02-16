@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import ProjectSection from "../components/ProjectSection";
+import "../styles/Home.css";
 
 const Home = () => {
   return (
@@ -6,9 +7,9 @@ const Home = () => {
       <div className="home-content">
         <h1 className="my-4">Yoonseo Park</h1>
         <p> Welcome to My Place 😊</p>
-        <Link to="/board">
-          <button className="btn-board">방명록 작성하기</button>
-        </Link>
+        <div className="mt-10">
+          <ProjectSection />
+        </div>
       </div>
     </div>
   );
