@@ -1,0 +1,77 @@
+.guestbook-container {
+    padding: 4rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .guestbook-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .guestbook-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .guestbook-form input,
+  .guestbook-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .guestbook-form button {
+    margin-top: 15px;
+    width: 25%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #ffc800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .guestbook-form button:hover {
+    background-color: #ffb700;
+  }
+  
+  .guestbook-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .guestbook-message {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    font-weight: bold;
+  }
+  
+  .message-date {
+    color: gray;
+    font-size: 0.75rem;
+  }
+  
+  .message-content {
+    margin-top: 5px;
+    font-size: 1rem;
+  }  

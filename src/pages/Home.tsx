@@ -1,4 +1,5 @@
 import AboutSection from "../components/AboutSection";
+import GuestBook from "../components/GuestBook";
 import ProjectSection from "../components/ProjectSection";
 import "../styles/Home.css";
 
@@ -11,6 +12,9 @@ const Home = () => {
         </div>
         <div className="mt-10">
           <ProjectSection />
+        </div>
+        <div className="mt-10">
+          <GuestBook />
         </div>
       </div>
     </div>
