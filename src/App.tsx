@@ -28,11 +28,11 @@ const App = () => {
             <Link to="/" className="logo">
               Yoonseo Park
             </Link>
-            <ul className="nav-links">
+            {/* <ul className="nav-links">
               <li>
                 <Link to="/board">-</Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </nav>
 
