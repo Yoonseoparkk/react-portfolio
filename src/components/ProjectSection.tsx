@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { Card, CardContent } from "./ui/Card";
 import { Button } from "./ui/Button";
 import "../styles/ProjectSection.css";
@@ -24,26 +25,21 @@ const projects = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: -30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 export default function ProjectSection() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <section className="project-section-container">
+    <motion.section
+      ref={ref}
+      className="project-section-container"
+      initial={{ opacity: 0, y: -50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6 }}
+    >
       <motion.h2
         className="project-title"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.5 }}
       >
         Projects
@@ -51,12 +47,22 @@ export default function ProjectSection() {
 
       <motion.div
         className="grid"
-        variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={inView ? "visible" : "hidden"}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        }}
       >
         {projects.map((project, index) => (
-          <motion.div key={index} variants={cardVariants} whileHover={{ scale: 1.05 }}>
+          <motion.div
+            key={index}
+            variants={{
+              hidden: { opacity: 0, y: -30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+            whileHover={{ scale: 1.05 }}
+          >
             <Card className="card">
               <img src={project.image} alt={project.title} className="card-img" />
               <CardContent className="card-content">
@@ -70,6 +76,6 @@ export default function ProjectSection() {
           </motion.div>
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 }

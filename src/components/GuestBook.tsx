@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import "../styles/GuestBook.css";
 
 export default function GuestBook() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,15 +27,14 @@ export default function GuestBook() {
   };
 
   return (
-    <section className="guestbook-container">
-      <motion.h2
-        className="guestbook-title"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        GuestBook
-      </motion.h2>
+    <motion.section
+      ref={ref}
+      className="guestbook-container"
+      initial={{ opacity: 0, y: -50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="guestbook-title">GuestBook</h2>
 
       <form className="guestbook-form" onSubmit={handleSubmit}>
         <input
@@ -56,8 +58,8 @@ export default function GuestBook() {
           <motion.div
             key={msg.id}
             className="guestbook-message"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
           >
             <div className="message-header">
@@ -68,6 +70,6 @@ export default function GuestBook() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
