@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "../styles/GuestBook.css";
+import { fetchMessages, postMessage } from "../api";
+import { Message } from "../types/guestbook";
 
 export default function GuestBook() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -10,20 +12,26 @@ export default function GuestBook() {
 
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // 📌 1️⃣ 백엔드에서 메시지 목록 불러오기
+  useEffect(() => {
+    fetchMessages()
+      .then(setMessages)
+      .catch((error) => console.error("메시지 불러오기 실패:", error));
+  }, []);
+
+  // 📌 2️⃣ 메시지 추가 & 서버로 전송
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !content.trim()) return;
 
-    const newMessage: Message = {
-      id: Date.now(),
-      name,
-      content,
-      date: new Date().toLocaleString(),
-    };
-
-    setMessages([newMessage, ...messages]); // 최신 메시지 순
-    setName("");
-    setContent("");
+    try {
+      const newMessage = await postMessage(name, content);
+      setMessages([newMessage, ...messages]); // 최신 메시지 맨 위로
+      setName("");
+      setContent("");
+    } catch (error) {
+      console.error("메시지 추가 실패:", error);
+    }
   };
 
   return (
