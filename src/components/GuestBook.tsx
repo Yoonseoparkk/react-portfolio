@@ -12,14 +12,14 @@ export default function GuestBook() {
 
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  // 📌 1️⃣ 백엔드에서 메시지 목록 불러오기
+  // 백엔드에서 메시지 목록 불러오기
   useEffect(() => {
     fetchMessages()
       .then(setMessages)
       .catch((error) => console.error("메시지 불러오기 실패:", error));
   }, []);
 
-  // 📌 2️⃣ 메시지 추가 & 서버로 전송
+  // 메시지 추가 & 서버로 전송
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !content.trim()) return;
